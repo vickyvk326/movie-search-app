@@ -1,0 +1,180 @@
+:root {
+  $--navbar-color: #388e3c;
+  $--ambience-color: #2bbbad;
+  $--white-text-color: white;
+  //app.jsx
+  .app {
+    font-family: "Segoe UI", "Roboto", arial, helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    min-height: 100vh;
+    //navbar.jsx
+    .navbar {
+      height: 10vh;
+      padding: 0 0.5rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $--navbar-color;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $--white-text-color;
+        text-decoration: none;
+        position: relative;
+        img {
+          border-color: $--navbar-color;
+          width: 1.5rem;
+          height: auto;
+        }
+        .data-tool-tip {
+          visibility: hidden;
+          position: absolute;
+          top: 2.25rem;
+          right: 0.0001rem;
+          width: 120px;
+          background-color: black;
+          color: #fff;
+          text-align: center;
+          border-radius: 0.5rem;
+          padding: 5px 0;
+        }
+      }
+      .data-tool-tip-container:hover .data-tool-tip {
+        visibility: visible;
+      }
+      .title {
+        font-size: 2rem;
+      }
+    }
+
+    //main.jsx
+    .main {
+      width: 70%;
+      margin: auto;
+      padding: 5rem auto;
+      .row {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .search-field {
+          padding: 1rem 0;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          input {
+            height: 2.7rem;
+            width: 100%;
+            padding-left: 0.75rem;
+            border: none;
+            border-bottom: 1px solid gray;
+            font-size: 1rem;
+            &::placeholder {
+              font-size: 1rem;
+              color: rgba($color: black, $alpha: 0.2);
+            }
+            &:focus {
+              border: none;
+              outline: none;
+            }
+          }
+          button {
+            box-shadow: 0 0 5px black;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            height: 2.5rem;
+            width: 5rem;
+            border-radius: 0.25rem;
+            position: absolute;
+            top: 16%;
+            right: 0;
+            cursor: pointer;
+            color: white;
+            border: none;
+            background-color: #2bbbad;
+          }
+        }
+        .category-field {
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          gap: 1.5rem;
+          label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            input {
+              border-color: #2bbbad;
+              outline: #2bbbad;
+            }
+            color: rgba($color: #000000, $alpha: 0.5);
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+    //footer.jsx
+    .footer {
+      height: 25vh;
+      width: 100%;
+      background-color: #81c784;
+      display: flex;
+      align-items: center;
+      .footer-wrapper {
+        height: 5%;
+        width: 100%;
+        padding: 2.5rem;
+        color: white;
+        background-color: #7bbb7e;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .copyright {
+          span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+          }
+          text-align: center;
+          &:hover span span {
+            font-size: 1.2rem;
+          }
+        }
+        .repo {
+          a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            img {
+              border-color: $--navbar-color;
+              width: 1.5rem;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (width <= 425px) {
+    .app .navbar {
+      height: 15vh;
+    }
+    .app .navbar a p {
+      display: none;
+    }
+    .app .main .row .search-field button {
+      height: 2.1rem;
+      width: 4.2rem;
+    }
+    .app .main {
+      width: 85%;
+    }
+  }
+}
