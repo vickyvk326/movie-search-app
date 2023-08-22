@@ -1,25 +1,30 @@
 import { Component } from "react";
 import Row from "./components/Row";
 import Movies from "./components/Movies";
+import Loader from "./components/Loader";
 
 export default class Main extends Component {
   state = {
     loading: true,
     movies: [],
   };
-  handleToggleLoaded = () => {
-    this.setState({ loaded: !this.state.loaded });
+  handleToggleLoading = (bool) => {
+    this.setState({ loading: bool });
   };
   handleSetMovies = (movies) => {
-    this.setState({ movies: movies, loading: false });
+    this.setState({ movies: movies });
+    this.handleToggleLoading(false);
   };
   render() {
     const handleSetMovies = this.handleSetMovies;
     return (
       <div className="main">
-        <Row handleSetMovies={handleSetMovies} />
+        <Row
+          handleSetMovies={handleSetMovies}
+          handleToggleLoading={this.handleToggleLoading}
+        />
         {this.state.loading ? (
-          <h1>Loading</h1>
+          <Loader />
         ) : (
           <Movies movies={this.state.movies} />
         )}

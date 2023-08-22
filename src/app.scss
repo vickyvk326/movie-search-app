@@ -90,7 +90,7 @@
             width: 5rem;
             border-radius: 0.25rem;
             position: absolute;
-            top: 16%;
+            top: 20%;
             right: 0;
             cursor: pointer;
             color: white;
@@ -162,7 +162,7 @@
       }
     }
   }
-  @media (width <= 425px) {
+  @media (width <= 620px) {
     .app .navbar {
       height: 15vh;
     }

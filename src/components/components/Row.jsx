@@ -10,6 +10,7 @@ export default class Row extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   handleSearch = (keyWord, type) => {
+    this.props.handleToggleLoading(true);
     axios
       .get(
         `https://www.omdbapi.com/?apikey=ee2f169&s=${keyWord}${
@@ -18,7 +19,6 @@ export default class Row extends Component {
       )
       .then((res) => {
         this.props.handleSetMovies(res.data.Search);
-        console.log(keyWord, type, res.data.Search);
       });
   };
   handleKeyDown = (e) => {
@@ -51,7 +51,10 @@ export default class Row extends Component {
           />
           <button
             className="btn search-btn"
-            onClick={() => handleSearch(this.state.text, this.state.category)}
+            onClick={() => {
+              this.props.handleToggleLoading(true);
+              handleSearch(this.state.text, this.state.category);
+            }}
           >
             search
           </button>

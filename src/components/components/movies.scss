@@ -1,6 +1,6 @@
 .movies {
   display: flex;
-  align-items: center;
+  justify-content: center;
   padding: 2rem 0;
   .movies-wrapper {
     display: grid;
@@ -38,7 +38,7 @@
         flex-direction: column;
         gap: 1rem;
         p {
-          font-size: 1.75rem;
+          font-size: 1.25rem;
           font-weight: 200;
         }
         .yeargenre {
@@ -46,6 +46,7 @@
           align-items: center;
           justify-content: space-between;
           p {
+            color: rgba(0, 0, 0, 0.45);
             font-size: 1rem;
             font-weight: 300;
           }
@@ -77,6 +78,15 @@
 }
 
 @media (width <= 375px) {
+  .movies .movies-wrapper .movie-grid .poster-container img {
+    width: 100%;
+    max-height: 16rem;
+    aspect-ratio: 9/16;
+    font-size: 1.5rem;
+    color: #9c9c9c;
+    background-color: #cccccc;
+    transition: transform 0.5s ease;
+  }
   .movies .movies-wrapper {
     justify-content: center;
     grid-template-columns: 85%;

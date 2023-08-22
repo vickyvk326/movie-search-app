@@ -5,13 +5,14 @@ export default class Movies extends Component {
     const movies = this.props.movies;
     return (
       <div className="movies">
-        <div className="movies-wrapper">
-          {/*  
-Poster: "https://m.media-amazon.com/images/M/MV5BNDVkYjU0MzctMWRmZi00NTkxLTgwZWEtOWVhYjZlYjllYmU4XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
-Title: "Friends"
-Type: "series"
-Year: "1994–2004"
-imdbID: "tt0108778" */}
+        <div
+          className="movies-wrapper"
+          style={
+            movies?.length <= 2
+              ? { display: "flex", flexDirection: "column" }
+              : { display: "grid" }
+          }
+        >
           {movies?.length ? (
             movies?.map((movie) => {
               return (
